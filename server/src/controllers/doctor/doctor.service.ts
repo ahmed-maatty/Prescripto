@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Doctor } from 'src/models/doctor.model';
-import { Repository } from 'typeorm';
+import { FindOptionsWhere, ILike, Repository } from 'typeorm';
 import { CreateDoctorDto } from './dtos/doctor.dto';
 import { Role } from '../user/dtos/userdto';
 import { User } from 'src/models/user.model';
@@ -66,15 +66,22 @@ export class DoctorService {
     * Access EveryOne
   */
   async getAllDoctorLogic() {
-    return this.Doctor.find()
+    return this.Doctor.find({ relations: ['user'] })
   }
 
   /*
     * Method Get Specific Doctors
     * Access EveryOne
   */
-  async getSpecificDoctorLogic() {
-
+  async getSpecificDoctorLogic(name?: string, specialist?: string) {
+    const query: FindOptionsWhere<Doctor> = {};
+    if (name) {
+      query.user = { username: ILike(`${name}`) } as FindOptionsWhere<User>;
+    }
+    if (specialist) {
+      query.specialist = ILike(`${specialist}`);
+    }
+    return this.Doctor.find({ where: query, relations: ['user'] });
   }
 
   /*
