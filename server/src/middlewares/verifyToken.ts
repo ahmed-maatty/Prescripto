@@ -2,10 +2,6 @@ import { Injectable, NestMiddleware, UnauthorizedException } from "@nestjs/commo
 import { Request, Response, NextFunction } from "express";
 import { JwtService } from "@nestjs/jwt";
 
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 @Injectable()
 export class LoggerMI implements NestMiddleware {
   constructor(private jwt: JwtService) { }
@@ -15,11 +11,12 @@ export class LoggerMI implements NestMiddleware {
       if (!token) {
         throw new UnauthorizedException("Login First")
       }
-      const decoded = this.jwt.verify(token, { secret: process.env.JWT_SECRET });
-      (req as any).user = decoded;
+      const decoded: { role: string, email: string, id: string } = this.jwt.verify(token, { secret: process.env.JWT_SECRET });
+      (req as Request & { user?: { role?: string, id?: string, email: string } }).user = decoded;
       next()
-    } catch (error) {
-      throw new UnauthorizedException("Invalid or expired token, Please Login")
+    } catch (err) {
+      console.log(err)
+      throw new UnauthorizedException("Invalid or expired token, Please Login");
     }
   }
 }

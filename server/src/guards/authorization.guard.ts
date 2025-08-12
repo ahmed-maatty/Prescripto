@@ -1,13 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { CanActivate, ExecutionContext, ForbiddenException, Injectable, UnauthorizedException } from "@nestjs/common";
+import { Request } from "express";
 
 @Injectable()
 export class AuthorizationGuard implements CanActivate {
   canActivate(context: ExecutionContext): boolean {
-    const req = context.switchToHttp().getRequest();
+    const req : Request = context.switchToHttp().getRequest();
     const { id: paramId } = req.params;
-    const { role, id } = req.user;
+    const { role, id } = (req as Request & ({user? : {id? :string , email? :string , role? : string}})).user || {};
     if (!role) {
       throw new ForbiddenException("Please, Login First.");
     }

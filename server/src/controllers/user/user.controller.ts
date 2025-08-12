@@ -2,7 +2,7 @@ import { Body, Controller, Post, Res,Req , Get, Param, ParseIntPipe, Delete, Put
 import { UserService } from "./user.service"
 import { CreateUserDto, EditDto, LoginDto } from './dtos/userdto';
 import { Response ,Request} from 'express';
-import { AuthorizationGuard } from 'src/guards/authorization.gard';
+import { AuthorizationGuard } from 'src/guards/authorization.guard';
 
 @Controller('user')
 export class UserController {
