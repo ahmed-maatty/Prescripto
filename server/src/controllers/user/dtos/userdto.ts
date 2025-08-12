@@ -5,7 +5,7 @@ enum Gender {
   Female = "Female"
 }
 
-enum Role {
+export enum Role {
   Patient = "Patient",
   Doctor = "Doctor",
   Admin = "Admin"
@@ -24,8 +24,6 @@ export class CreateUserDto {
   @IsEnum(Gender)
   @IsNotEmpty()
   gender: Gender
-  @IsEnum(Role)
-  role: Role = Role.Patient
   @IsString()
   phone: string
   @IsDateString()

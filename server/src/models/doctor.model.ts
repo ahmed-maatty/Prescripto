@@ -1,4 +1,4 @@
-import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { User } from "./user.model";
 import { Appointments } from "./appointments.model";
 
@@ -18,6 +18,7 @@ export class Doctor {
   @Column({ nullable: true })
   about: string
   @OneToOne(() => User, user => user.doctor)
+  @JoinColumn()
   user: User
   @OneToMany(() => Appointments, appointment => appointment.doctor)
   appoinments: Appointments[]

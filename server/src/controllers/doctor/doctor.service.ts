@@ -2,20 +2,63 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Doctor } from 'src/models/doctor.model';
 import { Repository } from 'typeorm';
+import { CreateDoctorDto } from './dtos/doctor.dto';
+import { Role } from '../user/dtos/userdto';
+import { User } from 'src/models/user.model';
 
 @Injectable()
 export class DoctorService {
   constructor(
     @InjectRepository(Doctor)
-    private Doctor: Repository<Doctor>
+    private Doctor: Repository<Doctor>,
+    @InjectRepository(User)
+    private User: Repository<User>
   ) { }
 
   /*
     * Method Create Doctor
     * Access Only Admin
   */
-  async createDoctorLogic() {
+  async createDoctorLogic(doctorInfo: CreateDoctorDto) {
+    const {
+      username,
+      email,
+      password,
+      phone,
+      birthdate,
+      gender,
+      about,
+      experience,
+      fees,
+      education,
+      specialist
+    } = doctorInfo;
 
+    const user = this.User.create({
+      username,
+      email,
+      password,
+      phone,
+      birthdate,
+      gender,
+      role: Role.Doctor
+    });
+    await this.User.save(user);
+
+    const doctor = this.Doctor.create({
+      about,
+      experience,
+      fees,
+      education,
+      specialist,
+      user
+    });
+    await this.Doctor.save(doctor);
+
+    return await this.Doctor.findOne({
+      where: { id: doctor.id },
+      relations: ['user']
+    });
   }
 
   /*
@@ -23,7 +66,7 @@ export class DoctorService {
     * Access EveryOne
   */
   async getAllDoctorLogic() {
-
+    return this.Doctor.find()
   }
 
   /*

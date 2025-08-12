@@ -32,7 +32,7 @@ export class UserService {
       phone,
       birthdate
     })
-    return { user }
+    return user
   }
 
   //Login Logic
@@ -55,7 +55,7 @@ export class UserService {
       sameSite: "strict"
     })
 
-    return res.status(200).json({ message: `Welcome, ${user.username}` , token})
+    return res.status(200).json({ message: `Welcome, ${user.username}`, token })
   }
 
   // get all users
