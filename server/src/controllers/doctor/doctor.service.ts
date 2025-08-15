@@ -89,14 +89,16 @@ export class DoctorService {
     * Access Admin For Role
     * Access Admin And Doctor For Info
   */
-  async editDoctorInfo() {
-
+  async editDoctorInfoLogic(id: number, Info) {
+    await this.Doctor.update(id, Info);
+    return { message: "Doctor Updated Successfully." }
   }
   /*
     * Method Delete Doctor
     * Access Admin For Role
   */
-  async deleteDoctorLogic() {
-
+  async deleteDoctorLogic(id: number) {
+    await this.Doctor.delete(id);
+    return { message: "Doctor Deleted Successfully." }
   }
 };
