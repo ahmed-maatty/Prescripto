@@ -1,0 +1,74 @@
+{
+  "doctors": [
+    {
+      "id": 1,
+      "name": "Dr. Richard James",
+      "specialization": "General physician",
+      "status": "Available",
+      "image": "/assets/doctor1.png"
+    },
+    {
+      "id": 2,
+      "name": "Dr. Richard James",
+      "specialization": "General physician",
+      "status": "Available",
+      "image": "/assets/doctor2.png"
+    },
+    {
+      "id": 3,
+      "name": "Dr. Richard James",
+      "specialization": "General physician",
+      "status": "Available",
+      "image": "/assets/doctor3.png"
+    },
+    {
+      "id": 4,
+      "name": "Dr. Richard James",
+      "specialization": "General physician",
+      "status": "Available",
+      "image": "/assets/doctor4.png"
+    },
+    {
+      "id": 5,
+      "name": "Dr. Richard James",
+      "specialization": "General physician",
+      "status": "Available",
+      "image": "/assets/doctor5.png"
+    },
+    {
+      "id": 6,
+      "name": "Dr. Richard James",
+      "specialization": "General physician",
+      "status": "Available",
+      "image": "/assets/doctor1.png"
+    },
+    {
+      "id": 7,
+      "name": "Dr. Richard James",
+      "specialization": "General physician",
+      "status": "Available",
+      "image": "/assets/doctor2.png"
+    },
+    {
+      "id": 8,
+      "name": "Dr. Richard James",
+      "specialization": "General physician",
+      "status": "Available",
+      "image": "/assets/doctor3.png"
+    },
+    {
+      "id": 9,
+      "name": "Dr. Richard James",
+      "specialization": "General physician",
+      "status": "Available",
+      "image": "/assets/doctor4.png"
+    },
+    {
+      "id": 10,
+      "name": "Dr. Richard James",
+      "specialization": "General physician",
+      "status": "Available",
+      "image": "/assets/doctor5.png"
+    }
+  ]
+}
