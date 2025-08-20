@@ -5,6 +5,7 @@ import { FindOptionsWhere, ILike, Repository } from 'typeorm';
 import { CreateDoctorDto } from './dtos/doctor.dto';
 import { Role } from '../user/dtos/userdto';
 import { User } from 'src/models/user.model';
+import hashPassword from 'src/utils/hashPassword';
 
 @Injectable()
 export class DoctorService {
@@ -34,10 +35,12 @@ export class DoctorService {
       specialist
     } = doctorInfo;
 
+    const hashedPass = await hashPassword(password)
+    
     const user = this.User.create({
       username,
       email,
-      password,
+      password: hashedPass,
       phone,
       birthdate,
       gender,

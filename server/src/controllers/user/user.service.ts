@@ -7,6 +7,7 @@ import { CreateUserDto, EditDto, LoginDto } from './dtos/userdto';
 import { JwtService } from "@nestjs/jwt";
 import * as bcrypt from "bcrypt";
 import { Response, Request } from 'express';
+import hashPassword from 'src/utils/hashPassword';
 
 @Injectable()
 export class UserService {
@@ -22,8 +23,8 @@ export class UserService {
     if (isEmailExit) {
       throw new UnauthorizedException("This Email Is Already Used");
     }
-    const salt = await bcrypt.genSalt(10)
-    const hashedPass = await bcrypt.hash(password, salt);
+    
+    const hashedPass = await hashPassword(password);
     const user = await this.User.save({
       username,
       email,
