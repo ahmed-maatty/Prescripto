@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { loginFunc } from "../api/api/authCalls";
+import { useAppDispatch } from "../hooks/dispatch.hook";
 
 function Login() {
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState({ email: "", password: "" });
   const handleUserData = (key: string, value: string) => {
     setUserInfo((prev) => ({
       ...prev,
       [key]: value,
     }));
   };
-  const submitHandler = () => {
-    console.log(userInfo);
+
+  const dispatch = useAppDispatch();
+  const submitHandler = function () {
+    dispatch(loginFunc(userInfo));
   };
+
   return (
     <section className="LoginPage">
       <form method="Post">

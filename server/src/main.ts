@@ -12,8 +12,9 @@ async function bootstrap() {
   }));
   app.use(cookieParser());
   app.enableCors({
-    Credential: true
-  })
+  origin: "http://localhost:5173",
+  credentials: true,
+});
   const Port = process.env.PORT || 5000;
   await app.listen(Port);
 }
