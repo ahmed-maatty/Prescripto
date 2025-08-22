@@ -8,6 +8,8 @@ import Home from "../pages/Home";
 import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
 import NotFound from "../pages/NotFound";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 function Routes() {
   return (
@@ -15,6 +17,8 @@ function Routes() {
       <Navbar />
       <RoutesContainer>
         <Route index path={"/"} element={<Home />} />
+        <Route path={"/login"} element={<Login />} />
+        <Route path={"/register"} element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </RoutesContainer>
       <Footer />
