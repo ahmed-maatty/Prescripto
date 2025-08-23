@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAppDispatch } from "../hooks/dispatch.hook";
+import { registerFunc } from "../api/api/authCalls";
 
 function Register() {
+  const dispatch = useAppDispatch()
   const [userInfo, setUserInfo] = useState({});
   const handleUserData = (key: string, value: string) => {
     setUserInfo((prev) => ({
@@ -10,7 +13,7 @@ function Register() {
     }));
   };
   const submitHandler = () => {
-    console.log(userInfo);
+    dispatch(registerFunc(userInfo));
   };
   return (
     <section className="RegisterPage">

@@ -10,11 +10,13 @@ import Footer from "../layout/Footer";
 import NotFound from "../pages/NotFound";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import { ToastContainer } from "react-toastify";
 
 function Routes() {
   return (
     <Router>
       <Navbar />
+      <ToastContainer />
       <RoutesContainer>
         <Route index path={"/"} element={<Home />} />
         <Route path={"/login"} element={<Login />} />

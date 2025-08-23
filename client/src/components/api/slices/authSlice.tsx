@@ -4,7 +4,7 @@ const initialState = {
   registerMsg: null,
   user: null,
   token: null,
-  loginMsg:null
+  loginMsg: null,
 };
 
 const authSlice = createSlice({
@@ -17,6 +17,7 @@ const authSlice = createSlice({
     login(state, action) {
       state.token = action.payload.token;
       state.loginMsg = action.payload.message;
+      state.user = action.payload.user;
     },
     logout(state) {
       state.token = null;
@@ -24,5 +25,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { login, logout } = authSlice.actions;
+export const { login, logout, register } = authSlice.actions;
 export const authReducer = authSlice.reducer;
