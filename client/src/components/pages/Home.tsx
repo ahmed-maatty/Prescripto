@@ -1,7 +1,7 @@
 import React from "react";
 import RegisterBtn from "../fragments/RegisterBtn";
-import { doctors } from "../json/doctors.json";
 import { Link } from "react-router-dom";
+import BringDoctors from "../fragments/BringDoctors";
 
 function Home() {
   const speciality = [
@@ -60,21 +60,7 @@ function Home() {
           <p>Simply browse through our extensive list of trusted doctors.</p>
         </div>
         <div className="doctors_content">
-          {doctors.map((doctor, index) => (
-            <div className="doctor" key={index}>
-              <div className="doc_img">
-                <img src={doctor.image} alt="" />
-              </div>
-              <div className="doc_details">
-                <p className="status">
-                  {" "}
-                  <span className="dot-green"></span> {doctor.status}
-                </p>
-                <h3 className="doc_name">{doctor.name}</h3>
-                <p className="specialize">{doctor.specialization}</p>
-              </div>
-            </div>
-          ))}
+          <BringDoctors />
         </div>
         <Link to={"all-doctors"} className="more-doctors-btn">
           More
