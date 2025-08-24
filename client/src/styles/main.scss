@@ -397,7 +397,7 @@ footer {
   .about-contact {
     display: flex;
     gap: 1.5rem;
-    .aboutImg{
+    .aboutImg {
       flex: 1;
       img {
         width: 100%;
@@ -408,7 +408,7 @@ footer {
       flex: 3;
       line-height: 33px;
       color: $second_font_color;
-      h6{
+      h6 {
         margin-bottom: 2rem;
         font-size: 18px;
         color: $main_font_color;
@@ -431,14 +431,14 @@ footer {
       }
     }
     .table {
-      border: 1px solid #ABABAB;
+      border: 1px solid #ababab;
       display: flex;
       div {
-        padding: 50px; 
+        padding: 50px;
         flex: 1;
-        &.middle{
-          border-left: 1px solid #ABABAB;
-          border-right: 1px solid #ABABAB;
+        &.middle {
+          border-left: 1px solid #ababab;
+          border-right: 1px solid #ababab;
         }
         h5 {
           margin-bottom: 2rem;
@@ -521,6 +521,76 @@ footer {
       a {
         color: $baby_blue_color;
         text-decoration: underline;
+      }
+    }
+  }
+}
+
+.specia_doctor_section {
+  padding: 70px 50px;
+  .doctor_info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    .doctor_Img {
+      flex: 1;
+      text-align: center;
+      background-color: $baby_blue_color;
+      border-radius: 14px;
+      align-self: stretch;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      img {
+        object-fit: contain;
+      }
+    }
+    .doctor_data {
+      flex: 3;
+      padding: 2rem;
+      border: 1px solid #a1a1a1;
+      border-radius: 14px;
+      h1 {
+        font-weight: 500;
+        color: $main_font_color;
+      }
+      h4 {
+        padding-top: 0.5rem;
+        color: $second_font_color;
+        font : {
+          size: 18px;
+          weight: 400;
+        }
+        span {
+          padding: 0.2em;
+          height: 30px;
+          width: 80px;
+          text-align: center;
+          border: 1px solid #a1a1a1;
+          border-radius: 25px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+      .about{
+        color: $main_font_color;
+        margin: 0.5rem 0;
+        font-size: 18px;
+      }
+      .about-content {
+        color: $second_font_color;
+        line-height: 30px;
+      }
+      .doctor-fee {
+        font-size: 18px;
+        color: $second_font_color;
+        margin-top: 0.5rem;
+        span {
+          font-weight: 500;
+          color: $main_font_color;
+        }
       }
     }
   }

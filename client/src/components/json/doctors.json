@@ -5,70 +5,111 @@
       "name": "Dr. Richard James",
       "specialization": "General physician",
       "status": "Available",
-      "image": "/assets/doctor1.png"
+      "image": "/assets/doctor1.png",
+      "about" : "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+      "degree" : "MBBS",
+      "fee":"50$",
+      "experience" : "2 Years"
     },
     {
       "id": 2,
       "name": "Dr. Richard James",
       "specialization": "Gynecologist",
       "status": "Available",
-      "image": "/assets/doctor2.png"
+      "image": "/assets/doctor2.png",
+      "about" : "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+      "degree" : "MBBS",
+      "fee":"50$",
+      "experience" : "2 Years"
     },
     {
       "id": 3,
       "name": "Dr. Richard James",
       "specialization": "Dermatologist",
       "status": "Available",
-      "image": "/assets/doctor3.png"
+      "image": "/assets/doctor3.png",
+      "about" : "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+      "degree" : "MBBS",
+      "fee":"50$",
+      "experience" : "2 Years"
+
     },
     {
       "id": 4,
       "name": "Dr. Richard James",
       "specialization": "Dermatologist",
       "status": "Available",
-      "image": "/assets/doctor4.png"
+      "image": "/assets/doctor4.png",
+      "about" : "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+      "degree" : "MBBS",
+      "fee":"50$",
+      "experience" : "2 Years"
     },
     {
       "id": 5,
       "name": "Dr. Richard James",
       "specialization": "Pediatricians",
       "status": "Available",
-      "image": "/assets/doctor5.png"
+      "image": "/assets/doctor5.png",
+      "about" : "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+      "degree" : "MBBS",
+      "fee":"50$",
+      "experience" : "2 Years"
     },
     {
       "id": 6,
       "name": "Dr. Richard James",
       "specialization": "Neurologist",
       "status": "Available",
-      "image": "/assets/doctor1.png"
+      "image": "/assets/doctor1.png",
+      "about" : "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+      "degree" : "MBBS",
+      "fee":"50$",
+      "experience" : "2 Years"
     },
     {
       "id": 7,
       "name": "Dr. Richard James",
       "specialization": "Neurologist",
       "status": "Available",
-      "image": "/assets/doctor2.png"
+      "image": "/assets/doctor2.png",
+      "about" : "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+      "degree" : "MBBS",
+      "fee":"50$",
+      "experience" : "2 Years"
     },
     {
       "id": 8,
       "name": "Dr. Richard James",
       "specialization": "Gastroenterologist",
       "status": "Available",
-      "image": "/assets/doctor3.png"
+      "image": "/assets/doctor3.png",
+      "about" : "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+      "degree" : "MBBS",
+      "fee":"50$",
+      "experience" : "2 Years"
     },
     {
       "id": 9,
       "name": "Dr. Richard James",
       "specialization": "Gastroenterologist",
       "status": "Available",
-      "image": "/assets/doctor4.png"
+      "image": "/assets/doctor4.png",
+      "about" :"Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+      "degree" : "MBBS",
+      "fee":"50$",
+      "experience" : "2 Years"
     },
     {
       "id": 10,
       "name": "Dr. Richard James",
       "specialization": "Gastroenterologist",
       "status": "Available",
-      "image": "/assets/doctor5.png"
+      "image": "/assets/doctor5.png",
+      "about" : "Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+      "degree" : "MBBS",
+      "fee":"50$",
+      "experience" : "2 Years"
     }
   ]
 }

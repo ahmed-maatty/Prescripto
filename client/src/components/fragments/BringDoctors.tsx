@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { doctors } from "../json/doctors.json";
+import { Link } from "react-router-dom";
 
 interface Iprops {
   Specialize?: string;
@@ -18,7 +19,7 @@ function BringDoctors({ Specialize }: Iprops) {
   return (
     <div className="bring_doctors">
       {filterDoctor.map((doctor, index) => (
-        <div className="doctor" key={index}>
+        <Link to={`/doctor/${doctor.id}`} className="doctor" key={index}>
           <div className="doc_img">
             <img
               src={doctor.image ?? "/default-image.png"}
@@ -34,7 +35,7 @@ function BringDoctors({ Specialize }: Iprops) {
               {doctor.specialization ?? "Not specified"}
             </p>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );
