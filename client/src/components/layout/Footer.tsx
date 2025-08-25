@@ -1,7 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, matchPath, useLocation } from "react-router-dom";
 
 function Footer() {
+  const location = useLocation();
+  const {pathname} = location;
+  const allowedpathes = [
+    "/",
+    "/all-doctors",
+    "/about",
+    "/contact",
+    "/login",
+    "/register",
+    "/doctor/:id",
+  ];
+  const isPathAllowed = allowedpathes.some((path) => matchPath({path , end :true} , pathname));
+  if(isPathAllowed)
   return (
     <footer>
       <div className="footer_data">

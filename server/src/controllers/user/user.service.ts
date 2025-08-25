@@ -25,7 +25,7 @@ export class UserService {
     }
     
     const hashedPass = await hashPassword(password);
-    const user = await this.User.save({
+    await this.User.save({
       username,
       email,
       password: hashedPass,
@@ -33,7 +33,7 @@ export class UserService {
       phone,
       birthdate
     })
-    return user
+    return {message : "User Created Successfully."}
   }
 
   //Login Logic
@@ -56,7 +56,7 @@ export class UserService {
       sameSite: "strict"
     })
 
-    return res.status(200).json({ message: `Welcome, ${user.username}`, token })
+    return res.status(200).json({ message: `Welcome, ${user.username}`, token , user })
   }
 
   // get all users

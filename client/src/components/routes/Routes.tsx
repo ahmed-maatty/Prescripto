@@ -14,6 +14,8 @@ import { ToastContainer } from "react-toastify";
 import AllDoctors from "../pages/AllDoctors";
 import About from "../pages/About";
 import DoctorDetails from "../pages/DoctorDetails";
+import Contact from "../pages/Contact";
+import Dashboard from "../pages/Dashboard";
 
 function Routes() {
   return (
@@ -26,7 +28,9 @@ function Routes() {
         <Route path={"/register"} element={<Register />} />
         <Route path={"/all-doctors"} element={<AllDoctors />} />
         <Route path={"/doctor/:id"} element={<DoctorDetails />} />
+        <Route path={"/contact"} element={<Contact />} />
         <Route path={"/about"} element={<About />} />
+        <Route path={"/dashboard"} element={<Dashboard />} />
         <Route path="*" element={<NotFound />} />
       </RoutesContainer>
       <Footer />
