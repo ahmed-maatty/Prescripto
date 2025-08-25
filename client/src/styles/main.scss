@@ -802,3 +802,138 @@ footer {
     }
   }
 }
+
+.All_Appointments_Dashboard {
+  .title {
+    margin-bottom: 1.5rem;
+    font : {
+      size: 22px;
+      weight: 500;
+    }
+  }
+  .appointment-cotainer {
+    background-color: white;
+    border: 1px solid #d8d8d8;
+    border-radius: 6px;
+    padding: 1rem 0;
+    height: calc(100vh - 200px);
+    overflow-y: scroll;
+
+    .appointment_header {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      border-bottom: 1px solid #d8d8d8;
+      padding: 0 1rem 1rem 1rem;
+      text-align: center;
+      &.element {
+        padding: 1rem;
+      }
+
+      .id_appointment,
+      .age_appointment,
+      .fees_appointment {
+        flex: 1;
+      }
+      .patient_appointment,
+      .department_appointment,
+      .time_appointment,
+      .doc_appointment {
+        flex: 3;
+      }
+    }
+  }
+}
+
+.DoctorList_Container {
+  height: calc(100vh - 95px);
+  padding-bottom: 1rem;
+  overflow-y: scroll;
+  .title {
+    margin-bottom: 1.5rem;
+    font : {
+      size: 22px;
+      weight: 500;
+    }
+  }
+  .bring_doctors {
+    justify-content: start;
+  }
+}
+
+.Add_Doctor_Container {
+  .title {
+    margin-bottom: 1.5rem;
+    font : {
+      size: 22px;
+      weight: 500;
+    }
+  }
+  .doctor_input_container {
+    background-color: white;
+    border: 1px solid #d8d8d8;
+    border-radius: 6px;
+    padding: 1rem;
+    height: calc(100vh - 200px);
+    .doctor_input {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      margin-bottom: 1.5rem;
+      div {
+        width: calc((100% - 1rem) / 3);
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 10px;
+        label {
+          color: $second_font_color;
+        }
+        input {
+          border: 1px solid #c1c1c1;
+          border-radius: 5px;
+          height: 35px;
+          width: 100%;
+          outline: 0;
+          padding: 0 1rem;
+          font-size: 16px;
+        }
+      }
+    }
+    .doctor_textArea {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      label {
+        color: $second_font_color;
+      }
+      textarea {
+        border: 1px solid #c1c1c1;
+        border-radius: 5px;
+        width: 100%;
+        outline: 0;
+        padding: 1rem 1.5rem;
+        font-size: 16px;
+      }
+    }
+    .create_doctor_container_btn {
+      width: 100%;
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      button {
+        background-color: $baby_blue_color;
+        border-radius: 50px;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        width: 200px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+    }
+  }
+}

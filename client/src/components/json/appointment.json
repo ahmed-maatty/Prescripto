@@ -1,0 +1,94 @@
+{
+  "appointments": [
+    {
+      "id":"1",
+      "img": "/assets/profile_img.svg",
+      "name": "Richard James",
+      "date": "Booking on 24th July, 2024",
+      "fees":"50$",
+      "department":"General physician",
+      "doctor":"Richard James",
+      "age" : "25"
+    },
+    {
+      "id":"2",
+      "img": "/assets/profile_img.svg",
+      "name": "Richard James",
+      "date": "Booking on 24th July, 2024",
+      "fees":"50$",
+      "department":"General physician",
+      "doctor":"Richard James",
+      "age" : "25"
+    },
+    {
+      "id":"3",
+      "img": "/assets/profile_img.svg",
+      "name": "Richard James",
+      "date": "Booking on 24th July, 2024",
+      "fees":"50$",
+      "department":"General physician",
+      "doctor":"Richard James",
+      "age" : "25"
+    },
+    {
+      "id":"4",
+      "img": "/assets/profile_img.svg",
+      "name": "Richard James",
+      "date": "Booking on 24th July, 2024",
+      "fees":"50$",
+      "department":"General physician",
+      "doctor":"Richard James",
+      "age" : "25"
+    },
+    {
+      "id":"5",
+      "img": "/assets/profile_img.svg",
+      "name": "Richard James",
+      "date": "Booking on 24th July, 2024",
+      "fees":"50$",
+      "department":"General physician",
+      "doctor":"Richard James",
+      "age" : "25"
+    },
+    {
+      "id":"5",
+      "img": "/assets/profile_img.svg",
+      "name": "Richard James",
+      "date": "Booking on 24th July, 2024",
+      "fees":"50$",
+      "department":"General physician",
+      "doctor":"Richard James",
+      "age" : "25"
+    },
+    {
+      "id":"5",
+      "img": "/assets/profile_img.svg",
+      "name": "Richard James",
+      "date": "Booking on 24th July, 2024",
+      "fees":"50$",
+      "department":"General physician",
+      "doctor":"Richard James",
+      "age" : "25"
+    },
+    {
+      "id":"5",
+      "img": "/assets/profile_img.svg",
+      "name": "Richard James",
+      "date": "Booking on 24th July, 2024",
+      "fees":"50$",
+      "department":"General physician",
+      "doctor":"Richard James",
+      "age" : "25"
+    },
+    {
+      "id":"5",
+      "img": "/assets/profile_img.svg",
+      "name": "Richard James",
+      "date": "Booking on 24th July, 2024",
+      "fees":"50$",
+      "department":"General physician",
+      "doctor":"Richard James",
+      "age" : "25"
+    }
+  ]
+}

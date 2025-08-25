@@ -1,33 +1,8 @@
 import React from "react";
+import {appointments} from "../json/appointment.json";
 
 function MainContent() {
-  const appointments = [
-    {
-      img: "/assets/profile_img.svg",
-      name: "Richard James",
-      date: "Booking on 24th July, 2024",
-    },
-    {
-      img: "/assets/profile_img.svg",
-      name: "Richard James",
-      date: "Booking on 24th July, 2024",
-    },
-    {
-      img: "/assets/profile_img.svg",
-      name: "Richard James",
-      date: "Booking on 24th July, 2024",
-    },
-    {
-      img: "/assets/profile_img.svg",
-      name: "Richard James",
-      date: "Booking on 24th July, 2024",
-    },
-    {
-      img: "/assets/profile_img.svg",
-      name: "Richard James",
-      date: "Booking on 24th July, 2024",
-    },
-  ];
+  
 
   return (
     <div className="MainContent">

@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
-import MainContent from '../fragments/MainDashboard'
+import MainContent from '../fragments/MainDashboard';
+import AllAppointment from '../fragments/AllAppointment';
+import DoctorList from "../fragments/DoctorList";
+import AddDoctor from '../fragments/AddDoctor';
 
 function Dashboard() {
   const [Content , setContent] = useState("Dashboard");
@@ -36,6 +39,15 @@ function Dashboard() {
       <div className="aside_content">
         {
           (Content === "Dashboard" && <MainContent />)
+        }
+        {
+          (Content === "Appointment" && <AllAppointment />)
+        }
+        {
+          (Content === "DoctorList" && <DoctorList />)
+        }
+        {
+          (Content === "AddDoctor" && <AddDoctor />)
         }
       </div>
     </section>
