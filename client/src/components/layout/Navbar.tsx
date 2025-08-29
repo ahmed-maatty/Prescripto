@@ -1,5 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, matchPath, NavLink, useLocation } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../hooks/dispatch.hook";
+import { logoutFunc } from "../api/api/authCalls";
 
 function Navbar() {
   const location = useLocation();
@@ -23,6 +25,11 @@ function Navbar() {
     matchPath({ path, end: true }, pathname)
   );
 
+  const { user } = useAppSelector((state) => state.auth);
+
+  const [doropDown, setDropDown] = useState(false);
+  const dispatch = useAppDispatch();
+
   if (isPathAllowed) {
     return (
       <nav>
@@ -39,12 +46,51 @@ function Navbar() {
           </ul>
         </div>
         <div className="auth_btn">
-          <Link to={"/register"}>Create account</Link>
+          {user ? (
+            <div className="userInfo">
+              <div onClick={() => setDropDown(true)}>
+                <img src={user?.photo?.uri} alt="" />
+              </div>
+              {doropDown && (
+                <div className="dropDown">
+                  <ul>
+                    <li>
+                      <Link to={"/profile"} onClick={() => setDropDown(false)}>
+                        Profile
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to={"/my-appointment"}
+                        onClick={() => setDropDown(false)}
+                      >
+                        My Appointments
+                      </Link>
+                    </li>
+
+                    <li>
+                      <Link
+                        to={"/"}
+                        onClick={() => {
+                          setDropDown(false);
+                          dispatch(logoutFunc());
+                        }}
+                      >
+                        Logout
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
+          ) : (
+            <Link to={"/register"}>Create account</Link>
+          )}
         </div>
       </nav>
     );
   }
-  if(pathname === "/dashboard"){
+  if (pathname === "/dashboard") {
     return (
       <nav className="dashboardNav">
         <div className="nav_logo">
@@ -52,7 +98,7 @@ function Navbar() {
           <h1>Prescripto</h1>
           <p>Admin</p>
         </div>
-        
+
         <div className="auth_btn">
           <button className="logout_btn">Logout</button>
         </div>

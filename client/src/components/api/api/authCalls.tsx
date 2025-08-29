@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import baseUrl from "../domain/baseUrl";
-import { login, register } from "../slices/authSlice";
+import { login, logout, register } from "../slices/authSlice";
 import type { LoginData , RegisterData } from "../../hooks/interfaces";
 
 
@@ -28,4 +28,14 @@ export function registerFunc(userInfo : RegisterData){
       toast.error(err.message);
     }
   }
+}
+
+export function logoutFunc() {
+    return (dispatch) => {
+      try {
+        dispatch(logout())
+      } catch (err) {
+        toast.error(err.message);
+      }
+    }
 }

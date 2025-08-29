@@ -1,5 +1,4 @@
 import React from "react";
-import RegisterBtn from "./RegisterBtn";
 
 function AddDoctor() {
   return (
