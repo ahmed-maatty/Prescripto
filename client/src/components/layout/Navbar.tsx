@@ -48,7 +48,7 @@ function Navbar() {
         <div className="auth_btn">
           {user ? (
             <div className="userInfo">
-              <div onClick={() => setDropDown(true)}>
+              <div onClick={() => setDropDown((prev) => !prev)}>
                 <img src={user?.photo?.uri} alt="" />
               </div>
               {doropDown && (
