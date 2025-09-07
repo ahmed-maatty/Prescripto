@@ -18,6 +18,8 @@ function Navbar() {
     "/contact",
     "/login",
     "/register",
+    "/profile",
+    "/my-appointments",
     "/doctor/:id",
   ];
 
@@ -61,7 +63,7 @@ function Navbar() {
                     </li>
                     <li>
                       <Link
-                        to={"/my-appointment"}
+                        to={"/my-appointments"}
                         onClick={() => setDropDown(false)}
                       >
                         My Appointments

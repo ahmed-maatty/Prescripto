@@ -11,6 +11,8 @@ function Footer() {
     "/contact",
     "/login",
     "/register",
+    "/profile",
+    "/my-appointments",
     "/doctor/:id",
   ];
   const isPathAllowed = allowedpathes.some((path) => matchPath({path , end :true} , pathname));

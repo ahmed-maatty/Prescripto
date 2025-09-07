@@ -16,6 +16,8 @@ import About from "../pages/About";
 import DoctorDetails from "../pages/DoctorDetails";
 import Contact from "../pages/Contact";
 import Dashboard from "../pages/Dashboard";
+import Profile from "../pages/Profile";
+import MyAppointments from "../pages/MyAppointments";
 
 function Routes() {
   return (
@@ -30,6 +32,8 @@ function Routes() {
         <Route path={"/doctor/:id"} element={<DoctorDetails />} />
         <Route path={"/contact"} element={<Contact />} />
         <Route path={"/about"} element={<About />} />
+        <Route path={"/profile"} element={<Profile />} />
+        <Route path={"/my-appointments"} element={<MyAppointments />} />
         <Route path={"/dashboard"} element={<Dashboard />} />
         <Route path="*" element={<NotFound />} />
       </RoutesContainer>
