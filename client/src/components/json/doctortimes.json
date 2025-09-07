@@ -1,0 +1,42 @@
+{
+  "doctor_appointments" : [
+    {
+      "day" : "Mon",
+      "dayDate" : "10"
+    },
+    {
+      "day" : "Tue",
+      "dayDate" : "11"
+    },
+    {
+      "day" : "Wed",
+      "dayDate" : "12"
+    },
+    {
+      "day" : "Thu",
+      "dayDate" : "13"
+    },
+    {
+      "day" : "Fri",
+      "dayDate" : "14"
+    },
+    {
+      "day" : "Sat",
+      "dayDate" : "15"
+    },
+    {
+      "day" : "Sun",
+      "dayDate" : "16"
+    }
+  ],
+  "times" : [
+    "8.00 am",
+    "8.30 am",
+    "9.00 am",
+    "9.30 am",
+    "10.00 am",
+    "10.30 am",
+    "11.00 am",
+    "11.30 am"
+  ]
+}
