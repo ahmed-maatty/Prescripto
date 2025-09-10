@@ -11,15 +11,16 @@ export class AppointmentService {
     private Appointment: Repository<Appointments>
   ) { }
 
-  async createAppointmentLogic(doctorId: number, req: Request, data: { date: string }) {
-    const { date } = data;
+  async createAppointmentLogic(doctorId: number, req: Request, data: { day: string , time : string }) {
+    const { day , time } = data;
     const { id: userId } = (req as Request & { user: { id: string, role: string, email: string } }).user;
     const appointment = await this.Appointment.save({
-      date: new Date(date),
+      day,
+      time,
       patient: { id: Number(userId) },
       doctor: { id: doctorId }
     });
-    return appointment
+    return this.Appointment.find({where : {id : appointment.id} , relations: ['user' , 'doctor']});
   }
 
   async getAllAppointmentsLogic() {

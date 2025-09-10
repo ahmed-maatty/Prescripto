@@ -53,7 +53,7 @@ function Login() {
           Login
         </button>
         <p className="having_account">
-          Already have an account? <Link to={"/login"}> Login here</Link>{" "}
+          <Link to={"/login"}> Forgot Your Password?</Link>{" "}
         </p>
       </form>
     </section>

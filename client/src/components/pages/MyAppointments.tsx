@@ -1,6 +1,8 @@
 import React from "react";
+import { useAppSelector } from "../hooks/dispatch.hook";
 
 function MyAppointments() {
+  const {} = useAppSelector(state => state.auth.user)
   return (
     <section className="MyAppointments">
       <h1>My appointments</h1>

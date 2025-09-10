@@ -5,6 +5,8 @@ import {
   doctor_appointments as appointment,
   times,
 } from "../json/doctortimes.json";
+import { useAppDispatch, useAppSelector } from "../hooks/dispatch.hook";
+import { makeAppointmentFunc } from "../api/api/appointmentCall";
 
 type doctorData = {
   id: number;
@@ -25,12 +27,25 @@ function DoctorDetails() {
     const doc: doctorData = doctors.filter((doc) => doc.id === Number(id))[0];
     setDoctor(doc);
   }, []);
-  
+
+  const [day, setDay] = useState("");
+  const [time, setTime] = useState(null);
+  const dispatch = useAppDispatch();
+
   const btnActivehandler = (btn, className) => {
     document
       .querySelectorAll(className)
       .forEach((e) => e.classList.remove("active"));
     btn.classList.add("active");
+    if (btn.classList.contains("doctor_time")) {
+      setTime(btn.innerHTML);
+    } else {
+      setDay(`${btn.children[0].innerHTML} ${btn.children[1].innerHTML}`);
+    }
+  };
+
+  const appointmentHandler = () => {
+    dispatch(makeAppointmentFunc({ day, time }, id));
   };
 
   return (
@@ -77,7 +92,9 @@ function DoctorDetails() {
             </button>
           ))}
         </div>
-        <button className="appointmentBtn">Book an appointment</button>
+        <button className="appointmentBtn" onClick={appointmentHandler}>
+          Book an appointment
+        </button>
       </div>
     </section>
   );

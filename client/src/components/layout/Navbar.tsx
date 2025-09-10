@@ -70,6 +70,17 @@ function Navbar() {
                       </Link>
                     </li>
 
+                    {user.role === "Admin" && (
+                      <li>
+                        <Link
+                          to={"/dashboard"}
+                          onClick={() => setDropDown(false)}
+                        >
+                          Dashboard
+                        </Link>
+                      </li>
+                    )}
+
                     <li>
                       <Link
                         to={"/"}
@@ -102,7 +113,16 @@ function Navbar() {
         </div>
 
         <div className="auth_btn">
-          <button className="logout_btn">Logout</button>
+          <Link
+            className="logout_btn"
+            to={"/"}
+            onClick={() => {
+              setDropDown(false);
+              dispatch(logoutFunc());
+            }}
+          >
+            Logout
+          </Link>
         </div>
       </nav>
     );

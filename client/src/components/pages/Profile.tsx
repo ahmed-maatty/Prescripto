@@ -1,22 +1,24 @@
 import React from "react";
+import { useAppSelector } from "../hooks/dispatch.hook";
 
 function Profile() {
+  const {username , email , phone , photo , birthdate , gender } = useAppSelector(state => state.auth.user);
   return (
     <section className="Profile">
       <div className="user_Image">
-        <img src="/assets/User.png" alt="" />
+        <img src={photo?.uri || "/assets/User.png"} alt="" />
       </div>
       <div className="Personal_Data">
-        <h1 className="userName">Edward Vincent</h1>
+        <h1 className="userName">{username || "Edward Vincent"}</h1>
         <div className="contact_information">
           <p>CONTACT INFORMATION</p>
           <div className="contact_method">
             <p>Email : </p>
-            <p>richardjameswap@gmail.com</p>
+            <p>{email || "richardjameswap@gmail.com"}</p>
           </div>
           <div className="contact_method">
             <p>Phone : </p>
-            <p>+1 123 456 7890</p>
+            <p>{phone || "+1 123 456 7890"}</p>
           </div>
           <div className="contact_method">
             <p>Address : </p>
@@ -27,11 +29,11 @@ function Profile() {
           <p>BASIC INFORMATION</p>
           <div className="contact_method">
             <p>Gender : </p>
-            <p>Male</p>
+            <p>{gender || "Male"}</p>
           </div>
           <div className="contact_method">
             <p>Birthday : </p>
-            <p>20 July, 2024</p>
+            <p>{birthdate || "20 July, 2024"}</p>
           </div>
         </div>
       </div>

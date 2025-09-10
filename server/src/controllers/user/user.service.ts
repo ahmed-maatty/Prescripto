@@ -39,7 +39,7 @@ export class UserService {
   //Login Logic
   async loginLogic(userInfo: LoginDto, res: Response) {
     const { email, password } = userInfo;
-    const user = await this.User.findOne({ where: { email } });
+    const user = await this.User.findOne({ where: { email } , relations : ['appoinments'] });
     if (!user) {
       throw new UnauthorizedException("Invalid Email Or Password");
     }

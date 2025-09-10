@@ -7,7 +7,9 @@ export class Appointments {
   @PrimaryGeneratedColumn()
   id: number
   @Column({ nullable: true })
-  date: Date
+  day: string
+  @Column({ nullable: true })
+  time: string
   @ManyToOne(() => User, user => user.appoinments)
   patient: User
   @ManyToOne(() => Doctor, doctor => doctor.appoinments)

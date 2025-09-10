@@ -9,17 +9,17 @@ export class AppointmentController {
   }
 
   @Post(":docorId")
-  async createAppointment(@Param("docorId" , ParseIntPipe) doctorId : number , @Req() req : Request ,@Body() data : {date : string}){
-    return this.appointmentServices.createAppointmentLogic(doctorId , req , data );
+  async createAppointment(@Param("docorId", ParseIntPipe) doctorId: number, @Req() req: Request, @Body() data: { day: string, time: string }) {
+    return this.appointmentServices.createAppointmentLogic(doctorId, req, data);
   }
 
   @Get()
-  async getAllAppointment(){
+  async getAllAppointment() {
     return this.appointmentServices.getAllAppointmentsLogic()
   }
 
   @Delete(":id")
-  async deleteAppointment(@Param("id" , ParseIntPipe) id : number){
+  async deleteAppointment(@Param("id", ParseIntPipe) id: number) {
     return this.appointmentServices.deleteAppointmentLogic(id)
   }
 }
