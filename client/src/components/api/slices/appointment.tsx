@@ -21,4 +21,4 @@ const appointment = createSlice({
 });
 
 export const appointmentReducer = appointment.reducer;
-export const { createAppointment } = appointment.actions;
+export const { createAppointment,getAllAppointments } = appointment.actions;
