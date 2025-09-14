@@ -3,27 +3,37 @@ import { createAppointment, getAllAppointments } from "../slices/appointment";
 
 export function makeAppointmentFunc(appiontmetn, doctorId) {
   return async (dispatch , getState) => {
-    const { data } = await baseUrl.post(
-      `/appointment/${doctorId}`,
-      appiontmetn,
-      {
-        headers: {
-          Authorization: getState().auth.token,
-        },
-      }
-    );
-    dispatch(createAppointment(data));
-  };
+    try {
+      const { data } = await baseUrl.post(
+        `/appointment/${doctorId}`,
+        appiontmetn,
+        {
+          headers: {
+            Authorization: getState().auth.token,
+          },
+        }
+      );
+      dispatch(createAppointment(data));
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }
 
 export function getAllAppointmentsFunc(){
   return async (dispatch ,getState) => {
-    const {data} = await baseUrl.get("/appointment" , {
-      headers : {
-        Authorization: getState().auth.token 
-      }
-    });
-    dispatch(getAllAppointments(data))
+    try {
+      const {data} = await baseUrl.get("/appointment" , {
+        headers : {
+          Authorization: getState().auth.token 
+        }
+      });
+      dispatch(getAllAppointments(data))
+      
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 

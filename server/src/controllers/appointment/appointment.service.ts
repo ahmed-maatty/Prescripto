@@ -20,7 +20,7 @@ export class AppointmentService {
       patient: { id: Number(userId) },
       doctor: { id: doctorId }
     });
-    return this.Appointment.find({where : {id : appointment.id} , relations: ['user' , 'doctor']});
+    return this.Appointment.find({where : {id : appointment.id} , relations: ['patient' , 'doctor']});
   }
 
   async getAllAppointmentsLogic() {

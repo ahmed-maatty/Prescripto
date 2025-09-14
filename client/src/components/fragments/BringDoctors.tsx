@@ -11,7 +11,6 @@ interface Iprops {
 function BringDoctors({ Specialize }: Iprops) {
   
   const DBDoctors = useAppSelector((state) => state.doctor.doctors);
-  console.log(DBDoctors);
   const dispatch = useAppDispatch();
   const [doctors] = useState(DBDoctors ? DBDoctors : jsonDoctors);
   const [filterDoctor, setFilter] = useState(doctors);

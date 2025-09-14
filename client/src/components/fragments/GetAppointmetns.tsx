@@ -25,7 +25,7 @@ function GetAppointments() {
 
   return (
     <>
-      {appointments.lenght > 0 ? (
+      {appointments?.length > 0 ? (
         myDates
           ?.filter((item) => item.patient.id === user?.id)
           .map((item, idx) => (
