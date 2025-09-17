@@ -11,6 +11,7 @@ import { UserModule } from './controllers/user/user.module';
 import { AppointmentModule } from './controllers/appointment/appointment.module';
 import { DoctorModule } from './controllers/doctor/doctor.module';
 import { LoggerMI } from './middlewares/verifyToken';
+import { UploadModule } from './controllers/upload/upload.module';
 
 @Module({
   imports: [
@@ -43,7 +44,8 @@ import { LoggerMI } from './middlewares/verifyToken';
     }),
     UserModule,
     AppointmentModule,
-    DoctorModule
+    DoctorModule,
+    UploadModule
   ],
   controllers: [AppController],
   providers: [AppService],
