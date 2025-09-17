@@ -1,20 +1,14 @@
 import { Controller, UseInterceptors, Post, BadRequestException, UploadedFile } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { diskStorage } from 'multer';
+import { memoryStorage } from 'multer';
+import { UploadService } from './upload.service';
 
 @Controller('upload-file')
 export class UploadController {
+  constructor(private uploadService:UploadService){}
   @Post()
   @UseInterceptors(FileInterceptor('file', {
-    storage: diskStorage({
-      destination: "./assets",
-      filename(req, file, cb) {
-        const prefix = `${Date.now()}-${Math.round(Math.random() * 1000000)}`
-        const filename = `${prefix}-${file.originalname}`
-        cb(null, filename)
-      },
-
-    }),
+    storage: memoryStorage(),
     fileFilter: (req, file, cb) => {
       if (file.mimetype.startsWith("image")) {
         cb(null, true);
@@ -24,10 +18,8 @@ export class UploadController {
 
     }
   }))
-  uploadFile(@UploadedFile() file: Express.Multer.File) {
-    if (!file) throw new BadRequestException("Not File Provided");
-    console.log(file)
-    return {message : "photo uploaded successfully"}
+  async uploadFile(@UploadedFile() file: Express.Multer.File) {
+    const result = await this.uploadService.uploadImageToCloudinary(file);
+    return result
   }
-
 }
