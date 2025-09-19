@@ -52,9 +52,6 @@ function Login() {
         >
           Login
         </button>
-        <p className="having_account">
-          <Link to={"/login"}> Forgot Your Password?</Link>{" "}
-        </p>
       </form>
     </section>
   );

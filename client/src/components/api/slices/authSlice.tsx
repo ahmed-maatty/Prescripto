@@ -1,18 +1,26 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
-const initialState = {
+interface AuthState {
+  registerMsg: string | null;
+  user: string | null;
+  token: string | null;
+  loginMsg: string | null;
+  userappointments: Array<object> | null;
+}
+
+const initialState: AuthState = {
   registerMsg: null,
   user: null,
   token: null,
   loginMsg: null,
-  userappointments:null
+  userappointments: null,
 };
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    register(state, action) {
+    register(state, action:PayloadAction<string>) {
       state.registerMsg = action.payload;
     },
     login(state, action) {

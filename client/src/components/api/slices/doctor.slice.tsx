@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  doctors : null
+  doctors : null,
+  doctorCreatedMsg : ""
 };
 
 const doctorSlice = createSlice({
@@ -10,10 +11,13 @@ const doctorSlice = createSlice({
   reducers : {
     getAllDoctors : ( state , action ) => {
       state.doctors = action.payload;
-    } 
+    },
+    creatDoctor : (state , action) => {
+      if(action.payload) state.doctorCreatedMsg = "Doctor Created Successfully!"
+    }
   }
 });
 
-export const {getAllDoctors} = doctorSlice.actions;
+export const {getAllDoctors , creatDoctor} = doctorSlice.actions;
 
 export const doctorReducer = doctorSlice.reducer;
