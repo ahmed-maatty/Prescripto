@@ -1,17 +1,6 @@
-import React, { useState } from "react";
-import { createDoctorFunc } from "../api/api/doctorCalls";
-import { useAppDispatch } from "../hooks/dispatch.hook";
+import React from "react";
 
 function AddDoctor() {
-  const [Data, SetData] = useState({});
-  const setDoctorData = (key: string, value: string) => {
-    SetData((prev) => ({ ...prev, [`${key}`]: value }));
-  };
-  const dispatch = useAppDispatch()
-  const addDoctorHandler = () => {
-    dispatch(createDoctorFunc(Data))
-    console.log(Data)
-  }
   return (
     <div className="Add_Doctor_Container">
       <h1 className="title">All Doctors</h1>
@@ -23,7 +12,6 @@ function AddDoctor() {
               type="text"
               placeholder="Doctor Name"
               id="username"
-              onChange={(e) => setDoctorData(e.target.id, e.target.value)}
             />
           </div>
           <div>
@@ -32,7 +20,6 @@ function AddDoctor() {
               type="email"
               placeholder="Doctor Email"
               id="email"
-              onChange={(e) => setDoctorData(e.target.id, e.target.value)}
             />
           </div>
           <div>
@@ -41,7 +28,6 @@ function AddDoctor() {
               type="text"
               placeholder="Doctor password"
               id="password"
-              onChange={(e) => setDoctorData(e.target.id, e.target.value)}
             />
           </div>
         </div>
@@ -52,7 +38,6 @@ function AddDoctor() {
               type="text"
               placeholder="Doctor Phone"
               id="phone"
-              onChange={(e) => setDoctorData(e.target.id, e.target.value)}
             />
           </div>
           <div>
@@ -61,7 +46,6 @@ function AddDoctor() {
               type="text"
               placeholder="Doctor Gender"
               id="gender"
-              onChange={(e) => setDoctorData(e.target.id, e.target.value)}
             />
           </div>
           <div>
@@ -70,7 +54,6 @@ function AddDoctor() {
               type="text"
               placeholder="Doctor Birthdate"
               id="birthdate"
-              onChange={(e) => setDoctorData(e.target.id, e.target.value)}
             />
           </div>
         </div>
@@ -80,7 +63,6 @@ function AddDoctor() {
             <input
               type="text"
               placeholder="Education"
-              onChange={(e) => setDoctorData(e.target.id, e.target.value)}
             />
           </div>
           <div>
@@ -89,7 +71,6 @@ function AddDoctor() {
               type="text"
               placeholder="Speciality"
               id="specialist"
-              onChange={(e) => setDoctorData(e.target.id, e.target.value)}
             />
           </div>
           <div>
@@ -98,7 +79,6 @@ function AddDoctor() {
               type="text"
               placeholder="Experience"
               id="experience"
-              onChange={(e) => setDoctorData(e.target.id, e.target.value)}
             />
           </div>
         </div>
@@ -109,7 +89,6 @@ function AddDoctor() {
               type="text"
               placeholder="fees"
               id="fees"
-              onChange={(e) => setDoctorData(e.target.id, e.target.value)}
             />
           </div>
         </div>
@@ -119,11 +98,10 @@ function AddDoctor() {
             name="about"
             id="about"
             placeholder="About"
-            onChange={(e) => setDoctorData(e.target.id, e.target.value)}
           ></textarea>
         </div>
         <div className="create_doctor_container_btn">
-          <button onClick={() => addDoctorHandler()}>Add doctor</button>
+          <button>Add doctor</button>
         </div>
       </div>
     </div>

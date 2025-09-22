@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { loginFunc } from "../api/api/authCalls";
-import { useAppDispatch } from "../hooks/dispatch.hook";
 
 function Login() {
   const [userInfo, setUserInfo] = useState({ email: "", password: "" });
@@ -12,10 +10,6 @@ function Login() {
     }));
   };
 
-  const dispatch = useAppDispatch();
-  const submitHandler = function () {
-    dispatch(loginFunc(userInfo));
-  };
 
   return (
     <section className="LoginPage">
@@ -47,7 +41,6 @@ function Login() {
           className="submit_form_btn"
           onClick={(e) => {
             e.preventDefault();
-            submitHandler();
           }}
         >
           Login

@@ -1,5 +1,4 @@
 import React from "react";
-import { useAppSelector } from "../hooks/dispatch.hook";
 
 function Profile() {
   const {username , email , phone , photo , birthdate , gender } = useAppSelector(state => state.auth.user);

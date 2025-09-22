@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link, matchPath, NavLink, useLocation } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../hooks/dispatch.hook";
-import { logoutFunc } from "../api/api/authCalls";
 
 function Navbar() {
   const location = useLocation();
@@ -27,10 +25,9 @@ function Navbar() {
     matchPath({ path, end: true }, pathname)
   );
 
-  const { user } = useAppSelector((state) => state.auth);
+  const user = false ;
 
   const [doropDown, setDropDown] = useState(false);
-  const dispatch = useAppDispatch();
 
   if (isPathAllowed) {
     return (
@@ -51,7 +48,7 @@ function Navbar() {
           {user ? (
             <div className="userInfo">
               <div onClick={() => setDropDown((prev) => !prev)}>
-                <img src={user?.photo?.uri} alt="" />
+                <img src={"/"} alt="" />
               </div>
               {doropDown && (
                 <div className="dropDown">
@@ -70,7 +67,7 @@ function Navbar() {
                       </Link>
                     </li>
 
-                    {user.role === "Admin" && (
+                    {user && (
                       <li>
                         <Link
                           to={"/dashboard"}
@@ -86,7 +83,6 @@ function Navbar() {
                         to={"/"}
                         onClick={() => {
                           setDropDown(false);
-                          dispatch(logoutFunc());
                         }}
                       >
                         Logout
@@ -118,7 +114,6 @@ function Navbar() {
             to={"/"}
             onClick={() => {
               setDropDown(false);
-              dispatch(logoutFunc());
             }}
           >
             Logout

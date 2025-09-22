@@ -1,18 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { appointments as jsonAppointment } from "../json/appointment.json";
-import { useAppDispatch, useAppSelector } from "../hooks/dispatch.hook";
-import { getAllAppointmentsFunc } from "../api/api/appointmentCall";
 
 function AllAppointment() {
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(getAllAppointmentsFunc());
-  }, []);
-  const apiAppointments = useAppSelector(
-    (state) => state.appointment.appointments
-  );
-  const appointments = apiAppointments || jsonAppointment;
-  console.log(appointments[0]);
+  const appointments = jsonAppointment;
+
   return (
     <div className="All_Appointments_Dashboard">
       <h3 className="title">All Appointments</h3>
@@ -30,20 +21,20 @@ function AllAppointment() {
           <div className="appointment_header element" key={idx}>
             <div className="id_appointment">{idx + 1}</div>
             <div className="patient_appointment">
-              {item.name || item.patient?.username }
+              {item.name}
             </div>
             <div className="department_appointment">
-              {item.department?.name || item.doctor?.specialist }
+              {item.department }
             </div>
-            <div className="age_appointment">20</div>
+            <div className="age_appointment">{item.age}</div>
             <div className="time_appointment">
-              {item.date || `${item.day} , ${item.time}`}
+              {item.date }
             </div>
             <div className="doc_appointment">
-              {item.doctor?.user?.username}
+              {item.doctor}
             </div>
             <div className="fees_appointment">
-              {item.fees || item.doctor?.fees }
+              {item.fees }
             </div>
           </div>
         ))}

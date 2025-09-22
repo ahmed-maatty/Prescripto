@@ -5,8 +5,6 @@ import {
   doctor_appointments as appointment,
   times,
 } from "../json/doctortimes.json";
-import { useAppDispatch, useAppSelector } from "../hooks/dispatch.hook";
-import { makeAppointmentFunc } from "../api/api/appointmentCall";
 
 type doctorData = {
   id: number;
@@ -30,7 +28,6 @@ function DoctorDetails() {
 
   const [day, setDay] = useState("");
   const [time, setTime] = useState(null);
-  const dispatch = useAppDispatch();
 
   const btnActivehandler = (btn, className) => {
     document
@@ -44,9 +41,6 @@ function DoctorDetails() {
     }
   };
 
-  const appointmentHandler = () => {
-    dispatch(makeAppointmentFunc({ day, time }, id));
-  };
 
   return (
     <section className="specia_doctor_section">
@@ -92,7 +86,7 @@ function DoctorDetails() {
             </button>
           ))}
         </div>
-        <button className="appointmentBtn" onClick={appointmentHandler}>
+        <button className="appointmentBtn" >
           Book an appointment
         </button>
       </div>
