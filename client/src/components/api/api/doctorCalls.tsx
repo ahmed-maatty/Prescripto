@@ -9,7 +9,6 @@ export function getAllDoctorFunc() {
       dispatch(getAllDoctors(res.data));
       toast.success(res.data.message);
     } catch (err) {
-      toast.error("Server Error!");
       console.log(err)
     }
   };
