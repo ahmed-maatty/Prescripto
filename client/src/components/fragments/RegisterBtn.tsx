@@ -17,7 +17,7 @@ function RegisterBtn({ btnTxt, btnColor, txtColor }: IProps) {
     fontWeight: "500",
   };
   return (
-    <button style={styleList}>
+    <button style={styleList} className="responsivestyle">
       <Link
         style={{ color: "inherit", textTransform: "capitalize" }}
         to={"register"}

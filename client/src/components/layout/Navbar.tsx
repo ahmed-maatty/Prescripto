@@ -25,9 +25,16 @@ function Navbar() {
     matchPath({ path, end: true }, pathname)
   );
 
-  const user = false ;
+  const user = false;
 
   const [doropDown, setDropDown] = useState(false);
+
+  const [menu, setMenu] = useState(false);
+  const menuHandler = () => {
+    document.getElementById("menu")?.classList.toggle("show");
+    setMenu((prev) => !prev);
+    document.getElementById("nav_links")?.classList.toggle("show");
+  };
 
   if (isPathAllowed) {
     return (
@@ -36,7 +43,7 @@ function Navbar() {
           <img src="/assets/Logo.png" alt="" />
           <h1>Prescripto</h1>
         </div>
-        <div className="nav_links">
+        <div className="nav_links" id="nav_links">
           <ul>
             <NavLink to={"/"}>home</NavLink>
             <NavLink to={"/all-doctors"}>all doctors</NavLink>
@@ -95,6 +102,11 @@ function Navbar() {
           ) : (
             <Link to={"/register"}>Create account</Link>
           )}
+          <button className="menu" id="menu" onClick={menuHandler}>
+            {
+              menu ? ("Close") : ("Open")
+            }
+          </button>
         </div>
       </nav>
     );
