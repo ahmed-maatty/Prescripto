@@ -5,6 +5,8 @@ import helmet from "helmet";
 import morgan from "morgan";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import connectedDB from "./DB/DBConnection.js";
+import authRoute from "./routes/authRoute.js";
 
 dotenv.config();
 const app = Express();
@@ -20,7 +22,14 @@ app.use(
 );
 app.use(cookieParser());
 
+//routes
+app.use("/api/auth", authRoute);
+
 const Port = process.env.PORT;
-app.listen(Port, () => {
-  console.log(`Server Work On Port ${Port}`);
-});
+connectedDB()
+  .then(() => {
+    app.listen(Port, () => {
+      console.log(`Server Work On Port ${Port}`);
+    });
+  })
+  .catch((err) => console.log(`DB Error Failed => ${err}`));
