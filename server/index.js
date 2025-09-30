@@ -7,6 +7,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import connectedDB from "./DB/DBConnection.js";
 import authRoute from "./routes/authRoute.js";
+import patientRoute from "./routes/patientRoute.js"
 
 dotenv.config();
 const app = Express();
@@ -24,6 +25,7 @@ app.use(cookieParser());
 
 //routes
 app.use("/api/auth", authRoute);
+app.use("/api/patient", patientRoute);
 
 const Port = process.env.PORT;
 connectedDB()
