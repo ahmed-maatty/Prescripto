@@ -45,10 +45,18 @@ function Navbar() {
         </div>
         <div className="nav_links" id="nav_links">
           <ul>
-            <NavLink to={"/"}>home</NavLink>
-            <NavLink to={"/all-doctors"}>all doctors</NavLink>
-            <NavLink to={"/about"}>about</NavLink>
-            <NavLink to={"/contact"}>Contact</NavLink>
+            <NavLink to={"/"} onClick={menuHandler}>
+              home
+            </NavLink>
+            <NavLink to={"/all-doctors"} onClick={menuHandler}>
+              all doctors
+            </NavLink>
+            <NavLink to={"/about"} onClick={menuHandler}>
+              about
+            </NavLink>
+            <NavLink to={"/contact"} onClick={menuHandler}>
+              Contact
+            </NavLink>
           </ul>
         </div>
         <div className="auth_btn">
@@ -103,9 +111,11 @@ function Navbar() {
             <Link to={"/register"}>Create account</Link>
           )}
           <button className="menu" id="menu" onClick={menuHandler}>
-            {
-              menu ? ("Close") : ("Open")
-            }
+            {menu ? (
+              <img src="/assets/arrow.png" alt="" className="menuPic" />
+            ) : (
+              <img src="/assets/menu.png" alt="menu" className="menuPic" />
+            )}
           </button>
         </div>
       </nav>

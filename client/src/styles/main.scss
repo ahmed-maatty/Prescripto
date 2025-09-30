@@ -1169,6 +1169,13 @@ footer {
 
 .menu {
   display: none;
+  background: transparent;
+}
+
+.menuPic{
+  object-fit: contain;
+  width: 30px;
+  height: 30px;
 }
 
 @media screen and (max-width: 900px) {
@@ -1220,7 +1227,28 @@ footer {
   }
 
   footer {
-    display: none;
+    padding: 0.5rem 1rem;
+    .footer_data {
+      flex-direction: column;
+      padding-bottom: 1rem;
+      .footer_links,.footer_contact {
+        .links {
+          margin: 1rem 0;
+        }
+
+      } 
+      .footer_desc {
+        width: 100%;
+        p {
+          margin: 1rem 0;
+        }
+      }
+    }
+    .copy_write {
+      p {
+        padding: 1rem 0;
+      }
+    }
   }
 
   .responsivestyle {
@@ -1230,6 +1258,10 @@ footer {
   .bring_doctors {
     flex-direction: column;
     width: 100%;
+    gap: 1.5rem;
+    .doctor {
+      width: 90%;
+    }
   }
 
   .Home {
@@ -1270,6 +1302,7 @@ footer {
       height: auto;
       border-radius: 0;
       padding: 1rem;
+      margin: 2rem 0 1rem 0;
       .book_image {
         display: none;
       }
@@ -1283,6 +1316,100 @@ footer {
           text-align: center;
           margin-bottom: 1rem;
         }
+      }
+    }
+  }
+
+  .RegisterPage, .LoginPage {
+    form {
+      width: 95%;
+    }
+  }
+
+  .All-Doctor {
+    padding-top: 20px;
+    flex-direction: column;
+    gap: 2rem;
+    .sort {
+      width: 100%;
+    }
+    .doctors {
+      width: 100%;
+    }
+  }
+
+  .specia_doctor_section {
+    padding: 1.8rem 1rem;
+    .doctor_info {
+      flex-direction: column;
+      .doctor_data {
+        padding: 0.8rem 1rem;
+        h4 {
+          display: flex; align-items: center;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+
+  .Booking_Slot {
+    .doctor_dates {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .doctor_times {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      .doctor_time {
+        width: 100px;
+        height: 50px;
+        font-size: 15px;
+        font-weight: 500;
+      }
+    }
+    .appointmentBtn {
+      display: block;
+      margin: 2.5rem auto 1rem;
+    }
+  }
+
+  .About{
+    padding: 2rem 1rem;
+    h1 {
+      margin-bottom: 2rem;
+    }
+    .about-contact{
+      flex-direction: column;
+    }
+    .whyUs {
+      .table {
+        flex-direction: column;
+        div.middle {
+          border: 0;
+          border-top: 1px solid #ababab;
+          border-bottom: 1px solid #ababab;
+        }
+      }
+    }
+  } 
+
+  .Contact_Section {
+    padding: 2rem 1rem;
+    .contact_content {
+      flex-direction: column;
+      .contact_info {
+        width: 100%;
+        p {
+          font-size: 18px;
+        }
+        button {
+          width: 150px;
+          font-size: 18px;
+        }
+      }
+      .contact_img {
+        width: 100%;
       }
     }
   }
