@@ -5,8 +5,7 @@ export default async function getUser(req, res) {
     const { role } = req.query;
     const user = await User.find({
       role: { $regex: new RegExp(`^${role}$`, "i") },
-    });
-    console.log(user);
+    }).populate("appointments");
     if (user.length === 0) {
       console.log(role);
       return res.status(404).json({ message: "User Not Found " });

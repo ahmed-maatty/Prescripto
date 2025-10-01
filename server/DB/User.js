@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import { Schema, model } from "mongoose";
+import { Schema, model , Types} from "mongoose";
 
 const userSchema = new Schema(
   {
@@ -34,6 +34,12 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    appointments: [
+      {
+        type: Types.ObjectId,
+        ref: "Appointment",
+      }
+    ],
   },
   { timestamps: true }
 );
