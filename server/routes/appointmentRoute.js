@@ -6,7 +6,7 @@ import deleteAppointment from "../controllers/appointment/deleteAppointment.js";
 const router = Router();
 
 router.post("/create/:docId", logger, createAppointment);
-router.get("/", getAppointments);
+router.get("/", logger, getAppointments);
 router.delete("/:id", deleteAppointment);
 
 export default router;

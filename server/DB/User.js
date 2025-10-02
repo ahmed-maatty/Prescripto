@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import { Schema, model , Types} from "mongoose";
+import { Schema, model, Types } from "mongoose";
 
 const userSchema = new Schema(
   {
@@ -34,11 +34,17 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    profielPhoto: {
+      type: Object,
+      default: {
+        url: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+      },
+    },
     appointments: [
       {
         type: Types.ObjectId,
         ref: "Appointment",
-      }
+      },
     ],
   },
   { timestamps: true }
