@@ -25,6 +25,7 @@
     "multer": "^2.0.2"
   },
   "devDependencies": {
-    "@types/jsonwebtoken": "^9.0.10"
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^2.0.0"
   }
 }

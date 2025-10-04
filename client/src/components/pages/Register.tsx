@@ -1,13 +1,54 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Register() {
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState({
+    username: "",
+    email: "",
+    password: "",
+    gender: "",
+    phone: "",
+    age: "",
+  });
   const handleUserData = (key: string, value: string) => {
     setUserInfo((prev) => ({
       ...prev,
       [key]: value,
     }));
+  };
+  const navigate = useNavigate();
+
+  const registerHandler = async () => {
+    if (
+      !userInfo?.email ||
+      !userInfo.password ||
+      !userInfo.username ||
+      !userInfo.gender ||
+      !userInfo.phone ||
+      !userInfo.age
+    ) {
+      toast.error("Please, Enter Your Information");
+    }
+    try {
+      const res = await fetch("http://localhost:8000/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userInfo),
+      });
+      const { message, Success } = await res.json();
+      console.log(message);
+      if (Success) {
+        toast.success(message);
+        navigate("/login");
+      }else{
+        toast.error(message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <section className="RegisterPage">
@@ -22,6 +63,7 @@ function Register() {
             type="text"
             placeholder="Write Your Name"
             name="username"
+            required
             onChange={(e) => handleUserData(e.target.name, e.target.value)}
           />
         </div>
@@ -31,6 +73,7 @@ function Register() {
             type="email"
             placeholder="Write Your Email"
             name="email"
+            required
             onChange={(e) => handleUserData(e.target.name, e.target.value)}
           />
         </div>
@@ -40,6 +83,7 @@ function Register() {
             type="password"
             placeholder="Write Your password"
             name="password"
+            required
             onChange={(e) => handleUserData(e.target.name, e.target.value)}
           />
         </div>
@@ -51,6 +95,7 @@ function Register() {
                 type="checkbox"
                 value={"Male"}
                 name="gender"
+                required
                 onChange={(e) => handleUserData(e.target.name, e.target.value)}
               />
               <label htmlFor="male">male</label>
@@ -60,6 +105,7 @@ function Register() {
                 type="checkbox"
                 value={"Female"}
                 name="gender"
+                required
                 onChange={(e) => handleUserData(e.target.name, e.target.value)}
               />
               <label htmlFor="female">female</label>
@@ -72,15 +118,17 @@ function Register() {
             type="text"
             placeholder="Enter Your phone"
             name="phone"
+            required
             onChange={(e) => handleUserData(e.target.name, e.target.value)}
           />
         </div>
         <div className="inputs-container">
-          <label htmlFor="birthdate">Birthdate</label>
+          <label htmlFor="age">Age</label>
           <input
-            type={"date"}
-            placeholder="Enter Your BirthDare"
-            name="birthdate"
+            type={"text"}
+            placeholder="Enter Your Age"
+            name="age"
+            required
             onChange={(e) => handleUserData(e.target.name, e.target.value)}
           />
         </div>
@@ -89,6 +137,7 @@ function Register() {
           className="submit_form_btn"
           onClick={(e) => {
             e.preventDefault();
+            registerHandler();
           }}
         >
           Create account

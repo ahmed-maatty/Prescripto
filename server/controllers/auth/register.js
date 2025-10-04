@@ -2,9 +2,8 @@ import createUser from "../../utils/createUser.js";
 
 export default async function Register(req, res) {
   try {
-    const user = await createUser(req, res);
-    res.status(200).json({ message: "Email Created ."});
+    return createUser(req, res);
   } catch (err) {
-    console.log(err);
+    res.status(500).json("Internal Server Error");
   }
 }

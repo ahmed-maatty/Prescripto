@@ -7,9 +7,10 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import connectedDB from "./DB/DBConnection.js";
 import authRoute from "./routes/authRoute.js";
-import patientRoute from "./routes/patientRoute.js"
+import patientRoute from "./routes/patientRoute.js";
 import doctorRoute from "./routes/doctorRoute.js";
 import appointmentRoute from "./routes/appointmentRoute.js";
+import photoRoute from "./routes/photoRoute.js"
 
 dotenv.config();
 const app = Express();
@@ -28,8 +29,9 @@ app.use(cookieParser());
 //routes
 app.use("/api/auth", authRoute);
 app.use("/api/patient", patientRoute);
-app.use("/api/doctor" , doctorRoute);
-app.use("/api/appointment" , appointmentRoute)
+app.use("/api/doctor", doctorRoute);
+app.use("/api/appointment", appointmentRoute);
+app.use("/api" , photoRoute)
 
 const Port = process.env.PORT;
 connectedDB()
