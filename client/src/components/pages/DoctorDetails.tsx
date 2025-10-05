@@ -5,31 +5,46 @@ import {
   doctor_appointments as appointment,
   times,
 } from "../json/doctortimes.json";
+import { toast } from "react-toastify";
+import Cookies from "js-cookie";
 
-type doctorData = {
-  id: number;
-  name: string;
+type Doctor = {
   specialization: string;
-  status: string;
-  image: string;
-  about: string;
   degree: string;
+  about: string;
   fee: string;
   experience: string;
+  user: {
+    username: string;
+    profielPhoto: {
+      url: string;
+    };
+  };
 };
 
 function DoctorDetails() {
   const { id } = useParams();
-  const [doctor, setDoctor] = useState<doctorData | null>(null);
+  const jsonDoctor = doctors[0];
+  console.log(jsonDoctor);
+  const [doctor, setDoctor] = useState<Doctor | any>({});
+  const getDoctor = async () => {
+    try {
+      const res = await fetch(`http://localhost:8000/api/doctor/?id=${id}`);
+      const data = await res.json();
+      setDoctor(data.doctors[0]);
+    } catch (err) {
+      console.log(`error happens ${err}`);
+      setDoctor(jsonDoctor);
+    }
+  };
   useEffect(() => {
-    const doc: doctorData = doctors.filter((doc) => doc.id === Number(id))[0];
-    setDoctor(doc);
+    getDoctor();
   }, []);
 
   const [day, setDay] = useState("");
   const [time, setTime] = useState(null);
 
-  const btnActivehandler = (btn, className) => {
+  const btnActivehandler = (btn, className: string) => {
     document
       .querySelectorAll(className)
       .forEach((e) => e.classList.remove("active"));
@@ -41,23 +56,48 @@ function DoctorDetails() {
     }
   };
 
+  const bookHandler = async () => {
+    if (!Cookies.get("token")) {
+      return toast.error("Login First");
+    }
+    try {
+      if (!day || !time) {
+        return toast.error("Please, Enter Day And Time");
+      }
+      const res = await fetch(
+        `http://localhost:8000/api/appointment/create/${id}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+            Authorization: `Bearer ${Cookies.get("token")}`,
+          },
+          body: JSON.stringify({ day, time }),
+        }
+      );
+      const data = await res.json();
+      toast.success(data.message);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <section className="specia_doctor_section">
       <div className="doctor_info">
         <div className="doctor_Img">
-          <img src={doctor?.image} alt="" />
+          <img src={doctor.user?.profielPhoto?.url || doctor.image} alt="" />
         </div>
         <div className="doctor_data">
-          <h1>{doctor?.name}</h1>
+          <h1>{doctor.user?.username}</h1>
           <h4>
             {doctor?.degree} - {doctor?.specialization}{" "}
             <span>{doctor?.experience}</span>
           </h4>
           <p className="about">About</p>
-          <p className="about-content">{doctor?.about}</p>
+          <p className="about-content">{doctor.about}</p>
           <p className="doctor-fee">
-            Appointment fee: <span>{doctor?.fee}</span>
+            Appointment fee: <span>{doctor.fee}</span>
           </p>
         </div>
       </div>
@@ -86,7 +126,7 @@ function DoctorDetails() {
             </button>
           ))}
         </div>
-        <button className="appointmentBtn" >
+        <button className="appointmentBtn" onClick={bookHandler}>
           Book an appointment
         </button>
       </div>

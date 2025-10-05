@@ -542,8 +542,14 @@ footer {
       display: flex;
       align-items: flex-end;
       justify-content: center;
+      width: 100%;
+      height: 300px;
+      padding: 10px 0;
       img {
         object-fit: contain;
+        width: 90%;
+        height: 100%;
+        border-radius: 14px;
       }
     }
     .doctor_data {
@@ -565,7 +571,8 @@ footer {
         span {
           padding: 0.2em;
           height: 30px;
-          width: 80px;
+          width: fit-content;
+          padding: 8px 12px;
           text-align: center;
           border: 1px solid #a1a1a1;
           border-radius: 25px;
@@ -1172,7 +1179,7 @@ footer {
   background: transparent;
 }
 
-.menuPic{
+.menuPic {
   object-fit: contain;
   width: 30px;
   height: 30px;
@@ -1202,7 +1209,7 @@ footer {
     }
     .nav_links {
       display: none;
-      &.show{
+      &.show {
         display: flex;
         position: fixed;
         background-color: white;
@@ -1231,12 +1238,12 @@ footer {
     .footer_data {
       flex-direction: column;
       padding-bottom: 1rem;
-      .footer_links,.footer_contact {
+      .footer_links,
+      .footer_contact {
         .links {
           margin: 1rem 0;
         }
-
-      } 
+      }
       .footer_desc {
         width: 100%;
         p {
@@ -1320,7 +1327,8 @@ footer {
     }
   }
 
-  .RegisterPage, .LoginPage {
+  .RegisterPage,
+  .LoginPage {
     form {
       width: 95%;
     }
@@ -1345,7 +1353,8 @@ footer {
       .doctor_data {
         padding: 0.8rem 1rem;
         h4 {
-          display: flex; align-items: center;
+          display: flex;
+          align-items: center;
           justify-content: space-between;
         }
       }
@@ -1374,12 +1383,12 @@ footer {
     }
   }
 
-  .About{
+  .About {
     padding: 2rem 1rem;
     h1 {
       margin-bottom: 2rem;
     }
-    .about-contact{
+    .about-contact {
       flex-direction: column;
     }
     .whyUs {
@@ -1392,7 +1401,7 @@ footer {
         }
       }
     }
-  } 
+  }
 
   .Contact_Section {
     padding: 2rem 1rem;

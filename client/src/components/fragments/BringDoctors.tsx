@@ -7,29 +7,49 @@ interface Iprops {
 }
 
 function BringDoctors({ Specialize }: Iprops) {
-  const [doctors] = useState(jsonDoctors);
-  const [filterDoctor, setFilter] = useState(doctors);
+  const [doctors, setDoctors] = useState<any[]>([]);
+
+  const getApiDoctor = async () => {
+    try {
+      const res = await fetch("http://localhost:8000/api/doctor/");
+      const { doctors } = await res.json();
+      setDoctors(doctors);
+      console.log("Doctors from API:", doctors);
+    } catch (err) {
+      console.error("Error fetching doctors:", err);
+      setDoctors(jsonDoctors);
+    }
+  };
+
+  useEffect(() => {
+    getApiDoctor();
+  }, []);
 
   useEffect(() => {
     if (Specialize) {
-      const filteredDoctor = doctors.filter(
-        (doc) => doc.specialization === Specialize
+      setDoctors((prev) =>
+        prev.filter((doc) => doc.specialization === Specialize)
       );
-      setFilter(filteredDoctor);
+    } else {
+      getApiDoctor();
     }
   }, [Specialize]);
+
   return (
     <div className="bring_doctors">
-      {filterDoctor.map((doctor, index) => (
-        <Link to={`/doctor/${doctor.id}`} className="doctor" key={index}>
+      {doctors.map((doctor, index) => (
+        <Link to={`/doctor/${doctor._id}`} className="doctor" key={index}>
           <div className="doc_img">
-            <img src={doctor.image} alt={doctor.name} />
+            <img
+              src={doctor.image || doctor.user?.profielPhoto?.url}
+              alt={doctor.name}
+            />
           </div>
           <div className="doc_details">
             <p className="status">
-              <span className="dot-green"></span> {doctor.status ?? "Unknown"}
+              <span className="dot-green"></span> {doctor.status ?? "Available"}
             </p>
-            <h3 className="doc_name">{doctor.name}</h3>
+            <h3 className="doc_name">{doctor.name || doctor.user?.username}</h3>
             <p className="specialize">{doctor.specialization}</p>
           </div>
         </Link>
